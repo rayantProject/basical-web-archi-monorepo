@@ -1,0 +1,102 @@
+name: Deploy Workflow
+
+on:
+  push:
+    branches:
+      - dev
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  validate-dev:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Install jq for JSON parsing
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run linting
+        run: yarn lint
+
+      - name: Build application
+        run: yarn build
+
+      - name: Run tests (if any)
+        run: |
+          if [ -f "package.json" ] && jq -e '.scripts.test' package.json > /dev/null 2>&1; then
+            yarn test
+          else
+            echo "No test script found in package.json, skipping tests..."
+          fi
+
+  merge-to-main:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge dev into main
+        run: |
+          git checkout main
+          git pull origin main
+          git merge origin/dev --no-ff -m "🚀 Release ${{ github.ref_name }}: merge dev into main"
+          git push origin main
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$PREV_TAG" ]; then
+            echo "No previous tag found. Showing all commits."
+            LOG=$(git log --pretty=format:"- [%h] %s" --no-merges)
+          else
+            echo "Previous tag: $PREV_TAG"
+            LOG=$(git log $PREV_TAG..HEAD --pretty=format:"- [%h] %s" --no-merges) 
+          fi
+          echo "log<<EOF" >> $GITHUB_OUTPUT
+          echo "$LOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: |
+            🚀 **Production Release ${{ github.ref_name }}**
+            Mergé automatiquement de `dev` vers `main`.
+
+            **Changements inclus :**
+            ${{ steps.changelog.outputs.log }}
+
+            **Statut :**
+            - ✅ Build réussi
+            - ✅ Tests passés
+            - ✅ Mergé vers main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

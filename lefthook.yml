@@ -1,0 +1,19 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: yarn lint
+      stage_fixed: true
+
+    format:
+      run: yarn format
+      stage_fixed: true
+
+commit-msg:
+  jobs:
+    - run: yarn commitlint --edit {1}
+
+pre-push:
+  commands:
+    lint-all:
+      run: yarn lint:fix
