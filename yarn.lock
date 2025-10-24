@@ -16,29 +16,29 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@archi/api-service@workspace:packages/api-service"
   dependencies:
-    "@eslint/js": "npm:^9.37.0"
+    "@eslint/js": "npm:^9.38.0"
     "@eslint/json": "npm:^0.13.2"
-    "@eslint/markdown": "npm:^7.4.0"
-    "@fastify/static": "npm:^8.2.0"
-    "@types/node": "npm:^24.7.2"
+    "@eslint/markdown": "npm:^7.5.0"
+    "@fastify/static": "npm:^8.3.0"
+    "@types/node": "npm:^24.9.1"
     concurrently: "npm:^9.2.1"
-    dotenv: "npm:^17.2.1"
-    esbuild: "npm:^0.25.10"
-    eslint: "npm:^9.37.0"
-    fastify: "npm:^5.4.0"
-    fastify-plugin: "npm:^5.0.1"
+    dotenv: "npm:^17.2.3"
+    esbuild: "npm:^0.25.11"
+    eslint: "npm:^9.38.0"
+    fastify: "npm:^5.6.1"
+    fastify-plugin: "npm:^5.1.0"
     globals: "npm:^16.4.0"
     jiti: "npm:^2.6.1"
     mongodb-memory-server: "npm:^10.2.3"
-    mongoose: "npm:^8.16.5"
+    mongoose: "npm:^8.19.2"
     nodemon: "npm:^3.1.10"
     pino-pretty: "npm:^13.1.2"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.46.1"
+    typescript-eslint: "npm:^8.46.2"
     vitest: "npm:^3.2.4"
     wait-on: "npm:^9.0.1"
-    zod: "npm:^4.1.11"
+    zod: "npm:^4.1.12"
   languageName: unknown
   linkType: soft
 
@@ -46,22 +46,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@archi/client@workspace:packages/client"
   dependencies:
-    "@tailwindcss/postcss": "npm:^4"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
+    "@tailwindcss/postcss": "npm:^4.1.16"
+    "@types/node": "npm:^20.19.23"
+    "@types/react": "npm:^19.2.2"
+    "@types/react-dom": "npm:^19.2.2"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
-    eslint: "npm:^9"
+    eslint: "npm:^9.38.0"
     eslint-config-next: "npm:16.0.0"
     lucide-react: "npm:^0.546.0"
     next: "npm:16.0.0"
     react: "npm:19.2.0"
     react-dom: "npm:19.2.0"
     tailwind-merge: "npm:^3.3.1"
-    tailwindcss: "npm:^4"
+    tailwindcss: "npm:^4.1.16"
     tw-animate-css: "npm:^1.4.0"
-    typescript: "npm:^5"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -723,7 +723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.38.0, @eslint/js@npm:^9.37.0":
+"@eslint/js@npm:9.38.0, @eslint/js@npm:^9.38.0":
   version: 9.38.0
   resolution: "@eslint/js@npm:9.38.0"
   checksum: 10c0/b4a0d561ab93f0b1bc6a3f5e3f83764c9cccade59f2c54f1d718c1dcc71ac4d1be97bef7300cca641932d72e7555c79a7bf07e4e4ce1d0a1ddccc84d6440d2a6
@@ -742,7 +742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/markdown@npm:^7.4.0":
+"@eslint/markdown@npm:^7.5.0":
   version: 7.5.0
   resolution: "@eslint/markdown@npm:7.5.0"
   dependencies:
@@ -859,7 +859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^8.2.0":
+"@fastify/static@npm:^8.3.0":
   version: 8.3.0
   resolution: "@fastify/static@npm:8.3.0"
   dependencies:
@@ -1766,7 +1766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/postcss@npm:^4":
+"@tailwindcss/postcss@npm:^4.1.16":
   version: 4.1.16
   resolution: "@tailwindcss/postcss@npm:4.1.16"
   dependencies:
@@ -1888,7 +1888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.7.2":
+"@types/node@npm:*, @types/node@npm:^24.9.1":
   version: 24.9.1
   resolution: "@types/node@npm:24.9.1"
   dependencies:
@@ -1897,7 +1897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20":
+"@types/node@npm:^20.19.23":
   version: 20.19.23
   resolution: "@types/node@npm:20.19.23"
   dependencies:
@@ -1906,7 +1906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19":
+"@types/react-dom@npm:^19.2.2":
   version: 19.2.2
   resolution: "@types/react-dom@npm:19.2.2"
   peerDependencies:
@@ -1915,7 +1915,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19":
+"@types/react@npm:^19.2.2":
   version: 19.2.2
   resolution: "@types/react@npm:19.2.2"
   dependencies:
@@ -3349,7 +3349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^17.2.1":
+"dotenv@npm:^17.2.3":
   version: 17.2.3
   resolution: "dotenv@npm:17.2.3"
   checksum: 10c0/c884403209f713214a1b64d4d1defa4934c2aa5b0002f5a670ae298a51e3c3ad3ba79dfee2f8df49f01ae74290fcd9acdb1ab1d09c7bfb42b539036108bb2ba0
@@ -3594,7 +3594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.25.0, esbuild@npm:^0.25.10":
+"esbuild@npm:^0.25.0, esbuild@npm:^0.25.11":
   version: 0.25.11
   resolution: "esbuild@npm:0.25.11"
   dependencies:
@@ -3902,7 +3902,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9, eslint@npm:^9.37.0":
+"eslint@npm:^9.38.0":
   version: 9.38.0
   resolution: "eslint@npm:9.38.0"
   dependencies:
@@ -4131,14 +4131,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-plugin@npm:^5.0.0, fastify-plugin@npm:^5.0.1":
+"fastify-plugin@npm:^5.0.0, fastify-plugin@npm:^5.1.0":
   version: 5.1.0
   resolution: "fastify-plugin@npm:5.1.0"
   checksum: 10c0/61b330b8cb03a3581b796d745137499a782934abcf65dbf9a41d07248520cfd220b3ae8b16afeaf81af712e68e1ac24352895132cfeb2b372c66662c0170f365
   languageName: node
   linkType: hard
 
-"fastify@npm:^5.4.0":
+"fastify@npm:^5.6.1":
   version: 5.6.1
   resolution: "fastify@npm:5.6.1"
   dependencies:
@@ -6529,7 +6529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongoose@npm:^8.16.5":
+"mongoose@npm:^8.19.2":
   version: 8.19.2
   resolution: "mongoose@npm:8.19.2"
   dependencies:
@@ -8178,7 +8178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.1.16, tailwindcss@npm:^4":
+"tailwindcss@npm:4.1.16, tailwindcss@npm:^4.1.16":
   version: 4.1.16
   resolution: "tailwindcss@npm:4.1.16"
   checksum: 10c0/11beec3112686767292f43d602ffa26068be6b505adba7929ad17b2a3d8e262bdb2eb7c8d226325654ab8268ddd0ca7b7231df8ba59a77becbdae0df9f86268a
@@ -8485,7 +8485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.46.0, typescript-eslint@npm:^8.46.1":
+"typescript-eslint@npm:^8.46.0, typescript-eslint@npm:^8.46.2":
   version: 8.46.2
   resolution: "typescript-eslint@npm:8.46.2"
   dependencies:
@@ -8500,7 +8500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5, typescript@npm:^5.9.3":
+"typescript@npm:^5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -8510,7 +8510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
@@ -9093,7 +9093,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.22.4 || ^4.0.0, zod@npm:^4.1.11":
+"zod@npm:^3.22.4 || ^4.0.0, zod@npm:^4.1.12":
   version: 4.1.12
   resolution: "zod@npm:4.1.12"
   checksum: 10c0/b64c1feb19e99d77075261eaf613e0b2be4dfcd3551eff65ad8b4f2a079b61e379854d066f7d447491fcf193f45babd8095551a9d47973d30b46b6d8e2c46774
