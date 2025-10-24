@@ -9,6 +9,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "concurrently": "^9.2.1",
     "conventional-changelog-atom": "^5.0.0",
     "lefthook": "^2.0.0",
     "prettier": "^3.6.2"
@@ -16,10 +17,12 @@
   "scripts": {
     "dev:api": "yarn workspace @archi/api-service dev",
     "dev:client": "yarn workspace @archi/client dev",
+    "dev": "yarn workspaces foreach -A -p -i -t run dev",
     "build": "yarn workspaces foreach -A run build",
     "lint": "yarn workspaces foreach -A run lint",
     "lint:fix": "yarn workspaces foreach -A run lint:fix",
     "format:fix": "prettier --write .",
-    "format": "prettier --check ."
+    "format": "prettier --check .",
+    "dev-config": "docker-compose -f docker-compose-dev.yml up"
   }
 }

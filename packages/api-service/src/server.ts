@@ -1,5 +1,6 @@
 import fastify from 'fastify';
 import fastifyStatic from '@fastify/static';
+import fastifyCors from '@fastify/cors';
 import path from 'path';
 import config from '@/plugins/config';
 import routes from '@/routes';
@@ -18,10 +19,15 @@ const server = fastify({
     },
   },
 });
-
 server.register(fastifyStatic, {
   root: path.join(__dirname, '../public'),
   prefix: '/public/',
+});
+// Enable CORS for the client running on http://localhost:3000
+server.register(fastifyCors, {
+  origin: ['http://localhost:3000'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  credentials: true,
 });
 server.register(config);
 server.register(mongodbPlugin);
