@@ -15,6 +15,8 @@ const ConfigSchema = z.object({
   DB_HOST: z.string().default('localhost'),
   DB_PORT: z.string().default('27017'),
   DB_NAME: z.string().default('fastifymini-mongo'),
+  DB_USER: z.string().optional(),
+  DB_PASSWORD: z.string().optional(),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;

@@ -18,8 +18,15 @@ declare module 'fastify' {
 }
 
 const dbPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
-  const { DB_HOST, DB_PORT, DB_NAME } = server.config;
-  const uri = `mongodb://${DB_HOST}:${DB_PORT}`;
+  const { DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD } = server.config;
+
+  // Build connection string with optional authentication
+  let uri = `mongodb://`;
+  if (DB_USER && DB_PASSWORD) {
+    uri += `${encodeURIComponent(DB_USER)}:${encodeURIComponent(DB_PASSWORD)}@`;
+  }
+  uri += `${DB_HOST}:${DB_PORT}`;
+
   try {
     mongoose.connection.on('connected', () => {
       server.log.info({ actor: 'MongoDB' }, 'connected');
@@ -36,6 +43,7 @@ const dbPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
 
     await mongoose.connect(uri, {
       dbName: DB_NAME,
+      authSource: DB_USER ? 'admin' : undefined,
     });
   } catch (error) {
     server.log.error('MongoDB connection error: ', error);
